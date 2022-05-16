@@ -3,7 +3,7 @@
 - agent.reset_optimizer: leraning rate decay
 - reward: projection reward
 - add target model, update its weights every target_update epochs
-- add force reward for each step by envoking traj_mwpts function in generate_trajectory_try_2
+- add force reward for each step by envoking traj_mwpts function in generate_trajectory
 - local sensing input: global to local, residual link
 - stochastic action reinitialization (bound collision)
 - add obst-generation-mode: voxel_random, voxel_constraint, plane_random, radom, gazebo_random
@@ -307,7 +307,7 @@ class Trainer(object):
 
             loss_avg = sum(loss_list) / max(len(loss_list), 1)
             waypoints.append(list(self.env.objs_info['drone_pos']))
-            # plot_env(self.env, waypoints)
+
             # update target model weights
             if episode % args.target_update == 0:
                 self.agent.update_target()
@@ -417,24 +417,15 @@ class Trainer(object):
             if episode % 100 == 0:
                 print('Evaluating success ratio: {0:.03f}'.format(float(success / episode)))
                 print('Evaluating achieve ratio: {0:.03f}'.format(float(achieve / episode)))
-                break
-            #'''
+
             if (self.args.eval):
-                print('episode: {0:05d}, step: {1:03d}, reward: {2:.01f}, num_obst: {3:03d}, is_goal: {4}, start: {5}, target: {6}'.format(
-                episode,
-                steps,
-                episode_reward,
-                num_obst,
-                is_goal,
-                self.env.objs_info['drone_pos_start'],
-                self.env.objs_info['goal']
-                ))
+                print('episode: {0:05d}, step: {1:03d}, reward: {2:.01f}, num_obst: {3:03d}, is_goal: {4}, start: {5}, target: {6}'
+                .format(episode,steps,episode_reward,num_obst,is_goal,self.env.objs_info['drone_pos_start'],self.env.objs_info['goal']))
+
             if reward_info['is_goal'] and num_obst == 0:
                 print(waypoints)
                 print(self.env.objs_info['obst_list'])
                 #plot_env(self.env, waypoints)
-            #'''
-            #pdb.set_trace()
             print(waypoints)
             plot_env(self.env, waypoints)
             return waypoints
@@ -453,7 +444,6 @@ def plot_env(env, waypoints):
     #ax.set_title("")
     ax.legend(loc='lower right')
     plot_obstacles(fig, env)
-    # pdb.set_trace()
     plot_x, plot_y, plot_z = _trajectory(waypoints)
     waypoints_t = np.transpose(np.array(waypoints))+0.5
     ax.plot(waypoints_t[0], waypoints_t[1], waypoints_t[2], 'o')
@@ -530,10 +520,7 @@ def parse_args():
     parser.add_argument("--load-pretrained", default=True)
     parser.add_argument("--thrust-reward", action='store_true')
     parser.add_argument("--target-update", default=30, type=int)
-    parser.add_argument("--obst-generation-mode",
-                        default="voxel_random",
-                        choices=['voxel_random', 'plane_random', 'voxel_constrain', 'test', 'random', 'gazebo_random', 'demo'],
-                        type=str)
+    parser.add_argument("--obst-generation-mode",default="voxel_random",choices=['voxel_random', 'plane_random', 'voxel_constrain', 'test', 'random', 'gazebo_random', 'demo'],type=str)
     parser.add_argument("--verbose", default='2', type=str)
 
     return parser.parse_args()
@@ -553,7 +540,7 @@ def setup_logging(args, log_path=None):
 
 
 if __name__ == "__main__":
-    '''
+    #'''
     args = parse_args()
     setup_logging(args)
     main(args)
@@ -563,3 +550,4 @@ if __name__ == "__main__":
     source=np.array([3,1,2])
     goal=np.array([6,6,2])
     trajectory_main(obs_list, source, goal)
+    '''
