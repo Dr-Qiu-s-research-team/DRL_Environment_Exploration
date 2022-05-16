@@ -7,7 +7,7 @@ This is the repository to for Autonomous waypoints planning and trajectory gener
 
 - [Environment](#Environment)
 
-- [Example of use](#Example-of-use)
+- [Example](#Example)
 
 - [Publications](#Publications)
 
@@ -15,12 +15,15 @@ This is the repository to for Autonomous waypoints planning and trajectory gener
 
 ## Introduction
 
-
 Given a known environment, planning an obstcal-free
   
 ## Environment
 
 Please refer to the [UAV_data_repository](https://github.com/Dr-Qiu-s-research-team/UAV_data_repository) for more information. 
+
+## Example
+
+
 
 ## Publications
 
