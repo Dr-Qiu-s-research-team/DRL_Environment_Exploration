@@ -116,51 +116,5 @@ def create_objs(obs_num=10):
     groundtruth = np.array(groundtruth)
     return groundtruth
 
-def plot_obstacles(fig, env):
-    ax = fig.gca(projection='3d')
-    obs_list = env.objs_info['obst_list']
-    for temp_obst in obs_list:
-        _plot_cube(fig, int(temp_obst[0]), int(temp_obst[1]), int(temp_obst[2]))
-
-def _plot_cube(fig, cur_x, cur_y, cur_z):
-    ax = fig.gca(projection='3d')
-    N = 11
-    # right
-    x = (cur_x + 1) * np.ones((N,N))
-    y = np.arange(cur_y, cur_y + 1 + 0.1, 0.1)
-    z = np.arange(cur_z, cur_z + 1 + 0.1, 0.1)
-    y, z = np.meshgrid(y, z)
-    ax.plot_surface(x, y, z, color='b')
-    # left
-    x = cur_x * np.ones((N,N))
-    y = np.arange(cur_y, cur_y + 1 + 0.1, 0.1)
-    z = np.arange(cur_z, cur_z + 1 + 0.1, 0.1)
-    y, z = np.meshgrid(y, z)
-    ax.plot_surface(x, y, z, color='b')
-    # back
-    y = (cur_y + 1) * np.ones((N,N))
-    x = np.arange(cur_x, cur_x + 1 + 0.1, 0.1)
-    z = np.arange(cur_z, cur_z + 1 + 0.1, 0.1)
-    x, z = np.meshgrid(x, z)
-    ax.plot_surface(x, y, z, color='b')
-    # front
-    y = cur_y * np.ones((N,N))
-    x = np.arange(cur_x, cur_x + 1 + 0.1, 0.1)
-    z = np.arange(cur_z, cur_z + 1 + 0.1, 0.1)
-    x, z = np.meshgrid(x, z)
-    ax.plot_surface(x, y, z, color='b')
-    # up
-    z = (cur_z + 1) * np.ones((N,N))
-    y = np.arange(cur_y, cur_y + 1 + 0.1, 0.1)
-    x = np.arange(cur_x, cur_x + 1 + 0.1, 0.1)
-    y, x = np.meshgrid(y, x)
-    ax.plot_surface(x, y, z, color='b')
-    # down
-    z = cur_z * np.ones((N,N))
-    y = np.arange(cur_y, cur_y + 1 + 0.1, 0.1)
-    x = np.arange(cur_x, cur_x + 1 + 0.1, 0.1)
-    y, x = np.meshgrid(y, x)
-    ax.plot_surface(x, y, z, color='b')
-
 if __name__ == '__main__':
     create_environment(10)

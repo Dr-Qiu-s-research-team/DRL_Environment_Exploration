@@ -351,8 +351,6 @@ class Env(object):
                     obst_list.append(temp_obs.astype(np.float32))
 
         obs_list = self.objs_info['obst_list']
-        print(self.objs_info['obst_list'])
-        print()
 
         goal = None
         if destination is not None:
