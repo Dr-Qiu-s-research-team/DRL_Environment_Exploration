@@ -15,7 +15,15 @@ This is the repository to for Autonomous waypoints planning and trajectory gener
 
 ## Introduction
 
-Given a known environment, planning an obstcal-free
+Given a known environment, planning an obstcal-free trajectory.
+
+- Model
+
+The core of the agent is a Deep Reinforcement Model.
+
+The input is 
+
+- Observation
   
 ## Environment
 
