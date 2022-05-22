@@ -28,7 +28,7 @@ The input is the observation of the agent. And the output is the next action of 
 
 If we consider a 3x3 voxel world. The uav(red) could go to the adjecent 26 grids except the center which is the location of the uav shown in the figure below.
 
-![](https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/blob/main/image/action_space.png)
+<img src="https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/blob/main/image/action_space.png" width="300" height="300">
 
 - Encoding
 
