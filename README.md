@@ -15,9 +15,10 @@ This is the repository to for Autonomous waypoints planning and trajectory gener
 
 ## Introduction
 
-Given a known environment, planning an obstcal-free trajectory.
+In this work, we have developed an agent which could plan an obstcal-free trajectory from a strat point to the end, based on the observation of the environment.
 
-- Model
+
+- Agent
 
 The core of the agent is a Deep Reinforcement Model shown in figure below.
 
@@ -27,7 +28,18 @@ The input is the observation of the agent. And the output is the next action of 
 
 If we consider a 3x3 voxel world. The uav could go to the adjecent 26 grids except the center which is the location of the uav.
 
-- Observation
+- Encoding
+
+OBSTACLE_REWARD = -2.0
+GOAL_REWARD = 10.0
+DIST_REWARD = 0.1
+DRONE_POSITION = 1
+SELF_EGO = (2, 2, 2)
+
+kOutOfBound_Encode = -1.0
+kObstacle_Encode = -1.0
+kEgoPosition_Encode = 0.5
+kGoalPosition_Encode = 1
   
 ## Environment
 
@@ -41,7 +53,7 @@ To train the model.
 pyhton3 main.py
 ```
 
-There are lots of parameters could be setup in the main.py.
+There are lots of parameters could be setup in the main.py which could be easily modefied for different kinds of purposes.
 
 |patameter|defination|type|
 |-|-|-|
