@@ -34,19 +34,18 @@ If we consider a 3x3 voxel world. The uav(red) could go to the adjecent 26 grids
 
 We encode the environment, observation and the reward as below.
 
-|envionment|value|
-|-|-|
-|kOutOfBound_Encode|-1|
-|kObstacle_Encode|-1|
-|kEgoPosition_Encode|0.5|
-|kGoalPosition_Encode|1|
+|envionment|defination|value|
+|-|-|-|
+|kOutOfBound_Encode|grid outside the environemt|-1|
+|kObstacle_Encode|grid has an obstacle|-1|
+|kEgoPosition_Encode|the location the uav|0.5|
+|kGoalPosition_Encode|the location of the goal|1|
 
-|reward|value|
-|-|-|
-|OBSTACLE_REWARD|-2|
-|GOAL_REWARD|10|
-|DIST_REWARD|0.1|
-|DRONE_POSITION|1|
+|reward|defination|value|
+|-|-|-|
+|OBSTACLE_REWARD|if the uav hits an obstacle|-2|
+|GOAL_REWARD|if the uav reach the goal|10|
+|DIST_REWARD|the distance between the uav and the goal|0.1|
   
 ## Environment
 
