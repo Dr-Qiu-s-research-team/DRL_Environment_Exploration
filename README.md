@@ -26,20 +26,27 @@ The core of the agent is a Deep Reinforcement Model shown in figure below.
 
 The input is the observation of the agent. And the output is the next action of the UAV.
 
-If we consider a 3x3 voxel world. The uav could go to the adjecent 26 grids except the center which is the location of the uav.
+If we consider a 3x3 voxel world. The uav(red) could go to the adjecent 26 grids except the center which is the location of the uav shown in the figure below.
+
+![](https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/blob/main/image/action_space.png)
 
 - Encoding
 
-OBSTACLE_REWARD = -2.0
-GOAL_REWARD = 10.0
-DIST_REWARD = 0.1
-DRONE_POSITION = 1
-SELF_EGO = (2, 2, 2)
+We encode the environment, observation and the reward as below.
 
-kOutOfBound_Encode = -1.0
-kObstacle_Encode = -1.0
-kEgoPosition_Encode = 0.5
-kGoalPosition_Encode = 1
+|envionment|value|
+|-|-|
+|kOutOfBound_Encode|-1|
+|kObstacle_Encode|-1|
+|kEgoPosition_Encode|0.5|
+|kGoalPosition_Encode|1|
+
+|reward|value|
+|-|-|
+|OBSTACLE_REWARD|-2|
+|GOAL_REWARD|10|
+|DIST_REWARD|0.1|
+|DRONE_POSITION|1|
   
 ## Environment
 
