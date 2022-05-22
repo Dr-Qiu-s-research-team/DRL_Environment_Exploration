@@ -23,6 +23,39 @@ Please refer to the [UAV_data_repository](https://github.com/Dr-Qiu-s-research-t
 
 ## Example
 
+To train the model.
+
+```
+pyhton3 main.py
+```
+
+There are lots of parameters could be setup in the main.py.
+
+|patameter|defination|type|
+|-|-|-|
+|lr|learning rate|float|
+|mode|the kind of model|'linear','conv'|
+|batch size|batch size for trainnning|int|
+|optimizer|the kind of optimizer|'adam','sgd'|
+|env-size|the size of the environment|int|
+|sensing-range|the sensing range for the agent|int|
+|grid-resolution|the resolution for each grid|float|
+|num-obst|number of uccupied grids|int|
+|num-objs|number of shaped obstacles|int|
+|state-dim|maximum obstical number|int|
+|action-dim|the size of the action space|6,26|
+|eval|load pretrained model and evalue|bool|
+|buffer-size|the size of the replay buffer|int|
+|gamma|the decay of learning rate|float|
+|enable-epsilon|use epsilon greedy policy|bool|
+|epsilon|the maximum probability of the random process|float|
+|epsilon-min|the minimum probability of the random process|float|
+|max-steps|the maximum steps of one epoch|int|
+|save-epochs|the number of epochs to save the model|int|
+|save-weights-dir|the location to save or load the model|str|
+|load-pretrained|load the pretrained model|bool|
+|thrust-reward|use thrust reward|bool|
+|obst-generation-mode|the type of different environments|'voxel_random', 'plane_random', 'voxel_constrain', 'test', 'random', 'gazebo_random', 'demo'|
 
 
 ## Publications
