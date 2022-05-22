@@ -21,11 +21,11 @@ Given a known environment, planning an obstcal-free trajectory.
 
 The core of the agent is a Deep Reinforcement Model shown in figure below.
 
-[![](https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/tree/main/image/network.png)](https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/tree/main/image/network.png)
+![](https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/blob/main/image/network.png)
 
-[](https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/tree/main/image/network.png)
+The input is the observation of the agent. And the output is the next action of the UAV.
 
-The input is 
+If we consider a 3x3 voxel world. The uav could go to the adjecent 26 grids except the center which is the location of the uav.
 
 - Observation
   
