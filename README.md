@@ -21,6 +21,8 @@ Given a known environment, planning an obstcal-free trajectory.
 
 The core of the agent is a Deep Reinforcement Model shown in figure below.
 
+[![](https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/tree/main/image/network.png)](https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/tree/main/image/network.png)
+
 [](https://github.com/Dr-Qiu-s-research-team/DRL_Environment_Exploration/tree/main/image/network.png)
 
 The input is 
